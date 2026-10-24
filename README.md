@@ -1,2 +1,3 @@
-# comix-cleric-docs
-The official Documentation package for Comix Cleric.
+# Comix Cleric Documentation
+
+The official documentation package for Comix Cleric.
