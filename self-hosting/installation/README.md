@@ -73,7 +73,7 @@ services:
       COMIX_CLERIC_SECRET: REPLACE_THIS_SECRET_VALUE
 ```
 
-After configuring and uploading the file to an *empty* directory (Example: `~/cc-app`), run `docker compose up -d`. The app should now be running on port `3366` by default. Follow the later sections on getting the app live on the internet.
+After configuring and uploading the file to an *empty* directory (Example: `/var/cc-app`), run `docker compose up -d`. The app should now be running on port `3366` by default. Follow the later sections on getting the app live on the internet.
 
 > [!TIP]
 > Some versions of Docker use `docker-compose` instead of `docker compose`.
@@ -82,7 +82,11 @@ After configuring and uploading the file to an *empty* directory (Example: `~/cc
 
 We reccommend *always* using the `latest` image of Comix Cleric. It does not upgrade automatically, but gives you simple access to `docker compose pull` which will grab a fresh copy of the latest version.
 
-If you choose to use a specific image, like `1.0.0`, you can upgrade by altering your image version in the config to the latest version `panelparty/comix-cleric:1.2.3-beta` and running `docker compose pull`.
+To run an update, first stop the running container with `docker compose down`, then run the pull command.
+
+Once the new image has finished downloading, you can run the same `docker compose up -d` command to start it again.
+
+If you choose to use a specific image, like `1.0.0`, you can upgrade by altering your image version in the `compose.yml` config to the latest version `panelparty/comix-cleric:1.2.3-beta` and running `docker compose pull`.
 
 ---
 
@@ -102,6 +106,7 @@ Just as Docker needed certain config values to exists, so does Node.js. We will 
 Copy the included `.example.env` as `.env` or create a new one.
 
 Minimal config to run the app:
+
 ```bash
 # .env
 # Comix Cleric Config
