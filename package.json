@@ -1,0 +1,12 @@
+{
+  "name": "comix-cleric-docs",
+  "private": true,
+  "version": "1.0.0",
+  "author": "Panel Party <helloworld@panelparty.net> (https://bsky.app/profile/panelparty.net)",
+  "contributors": [
+    "Grawlich <kevin@panelparty.net> (https://bsky.app/profile/grawlich.art)",
+    "ArcadeAria <helloworld@panelparty.net> (https://bsky.app/profile/arcadearia.positivt.space)"
+  ],
+  "homepage": "https://comixcleric.com/docs",
+  "type": "module"
+}
