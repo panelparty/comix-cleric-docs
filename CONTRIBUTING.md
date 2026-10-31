@@ -37,8 +37,6 @@ For example, alerts:
 > Please make sure that all provided information is accurate, relevant to the current documentation page, and simple to follow.
 ```
 
-Follow standard Markdown syntax in most cases. For easier readability when editing, we've opted to add 3 new lines between each major block and horizontal dividers. This is not a strict rule, but we feel it does help without affecting the text rendering.
-
 #### Keep Contibutions Within Project or Release Scope
 
 This should go without saying, but documentation should not include features we do not yet support. Please keep all information relevant to the current release codebase.
@@ -51,8 +49,10 @@ If you are working on documentation for a future release, please keep it separat
 
 #### Generating changelogs
 
--# TODO
+At this time, changelogs must be hand-crafted. At some time in the future, we may use a tool like `changeset` to generate them.
+
+AI/LLM generated changelogs are not acceptable. No emojis, no em-dashes, no tell-tale signs of AI use, please. Even if you feel your written communication skills aren't great, outsourcing that to a machine doesn't help you or us because the AI is often entirely wrong and over-explains to the point of becoming just as difficult to understand. We encourage you to use your own words, even if you don't feel great about it. We will help with any grammatical errors, no judgement.
 
 ## Releases
 
--# TODO
+The core development team will manually release new versions once relevent milestones have been reached.
