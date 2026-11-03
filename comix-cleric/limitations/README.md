@@ -9,7 +9,7 @@ Comix Cleric is always improving, but there are some things you should know...
 All local user accounts are either "admin" or "user". While we work to expand role capabilities, all staff have the same permissions.
 
 > [!WARNING]
-> <u>**ONLY CREATE STAFF/ADMIN ACCOUNTS FOR PEOPLE YOU KNOW AND TRUST. They see and control the exact same things you can.**</u>
+> <u>ONLY CREATE STAFF/ADMIN ACCOUNTS FOR PEOPLE YOU KNOW AND TRUST. They see and control the exact same things you can.</u>
 
 ---
 
