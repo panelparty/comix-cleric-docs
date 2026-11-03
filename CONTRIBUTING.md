@@ -9,15 +9,9 @@ Here you'll find useful information about how we conduct open contributions.
 
 ## Licensing Contibutions
 
-By submitting a contribution to this project, you grant us a perpetual, irrevocable right to license your contribution under any terms, including commercial terms.
+This should go without saying, but you MUST own or have authorship rights to your contributions. We do not accept AI/LLM written or assisted documentation. Offending contributions will be removed, and you will be barred from future contributions entirely depending on the offense.
 
-In simpler terms: By contributing documentation to this project, we have the right to license your contributions commercially (for instance, partnering with another indie hosting platform), without your explicit or written consent, and you cannot change your mind once the contribution as been accepted, as we will have you digitally sign-off on your submission.
-
-This is very important, as you do own the rights to (almost) anything you contribute. By contributing, you are not waving your rights, but merely giving us express permission to sublicense it with the rest of our documentation. It keeps things easy and frictionless for everyone involved.
-
-If you do not agree to these terms, you should not contribute to this codebase.
-
-Also, this should go without saying, but you MUST own or have authorship rights to your contributions. We do not accept AI/LLM written or assisted documentation. Offending contributions will be removed, and you will be barred from future contributions entirely depending on the offense.
+**Do not copy/paste from other sources of documentation unless you know you have the rights to do so. That is plagiarism and will result in you being barred from contributing going forward.**
 
 ## Preparing
 
