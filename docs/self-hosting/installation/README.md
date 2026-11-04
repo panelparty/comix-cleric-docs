@@ -118,9 +118,6 @@ Updating follows the same process described in "Custom Docker Image" and will re
 
 ## Node.JS Server
 
-> [!NOTE]
-> Manual Node.js deployments are a bit more involved than Docker.
-
 ### Download Source Code
 
 Visit our [downloads](https://comixcleric.com/downloads) page or the releases page on GitHub and choose the version of Comix Cleric you'd like to work with:
@@ -132,11 +129,12 @@ Visit our [downloads](https://comixcleric.com/downloads) page or the releases pa
 
 Just as Docker needed certain config values to exists, so does Node.js. We will instead use a `.env` file to store the required config.
 
-Copy the included `.example.env` file as `.env` or create a new one.
+Copy the included `.example.env` as `.env` or create a new one.
 
-Configure the `.env` file with the options you'd like to include:
+Minimal config to run the app:
+
 ```bash
-# .env (minimal setup)
+# .env
 # Comix Cleric Config
 COMIX_CLERIC_SECRET="REPLACE_THIS_SECRET_VALUE" # Keeps your site safe/unique
 
@@ -145,41 +143,16 @@ NODE_ENV="production"
 ORIGIN="https://comic.example.com"
 ```
 
-### Install Depndencies
-
-The built files only contain the code that was converted from Svelte into native web code. You must install the original dependencies using a package manager.
-
-> [!NOTE]
-> By default, the presence of the `pnpm-lock.yaml` will likely require you to use PNPM as your package manager. (We recommend it over plain NPM anyway.)
-> You can install PNPM using `npm install -g pnpm`.
-
-To install dependencies, there are a few options:
-NPM: `npm i` or `npm install`
-PNPM: `pnpm i` or `pnpm install`
-Or you can use the "clean-install" command for those by using `ci` instal of `i`.
-
-It is reccommended that you use some variant of `npm ci --omit dev` so that it skips packages that had to be built into the app already.
-
-### Running the Production Node.js Server
-
-If all previous steps completed, simply run `node build` to start your production web server.
-
-It will default to hosting on `localhost:3000`.
-
 ---
 
-## Making the App Live
+### Making the App Live
 
 > [!IMPORTANT]
 > This is highly dependent on your host. We will provide additional details as they become available.
 
-### Nameservers and DNS
+#### Nameservers and DNS
 
-#### Nameservers
-
-Regardless of how you deploy, you'll most likely need to change the nameservers of your domain in your registrar's admin panel.
-
-Check around for DNS or nameserver settings.
+Regardless of how you deploy, you'll most likely need to change your nameservers in your domain registrar's admin panel.
 
 This may look something like:
 
@@ -192,8 +165,6 @@ ns5.myhost.com # May be hidden/unused
 ```
 
 Simply replace the values with the ones provided by your host to allow you to connect your domain to their server IP.
-
-Your host will provide you the nameserver values in their own documentation.
 
 ##### DNS Records
 
@@ -215,9 +186,9 @@ This should look something like:
 | A/AAAA | example.com       | 192.168.0.1 | Default |
 | A/AAAA | comic.example.com | 192.168.0.1 | Default |
 
-### Reverse Proxy Configuration
+#### Reverse Proxy Configuration
 
-#### nginx
+##### nginx
 
 If you are using `nginx` as your proxy, create a config that points your domain name to the port you've chosen.
 
@@ -230,14 +201,7 @@ Navigate to `/etc/nginx/sites-available` and either create a new `.conf` file, o
 
 Configs can take many different forms, but a general config for something like this would look like:
 
-```conf
-# Main site
-server {
-  server_name example.com;
-
-  # ...rest of config
-}
-
+```
 # Comix Cleric
 server {
   server_name comic.example.com;
@@ -253,25 +217,14 @@ server {
   listen 443 ssl;
   # SSL cert references
 }
-
-# HTTP redirect
-server {
-  listen 80;
-  server_name www.example.com example.com;
-  return 301 https://$host$request_uri;
-}
 ```
-
-Once you have configured nginx to support your new server, run `nginx -t` to test for errors.
-
-If it responds with a success status, you can run `systemctl reload nginx` to apply the new configuration.
 
 > [!TIP]
 > More information is coming soon. Please consider contributing additional guidance in the [documentation repo](https://github.com/panelparty/comix-cleric-docs).
 
-### SSL Certificates
+#### SSL Certificates
 
-#### Why You Need SSL Certificates
+##### Why You Need SSL Certificates
 
 All sites on the internet require SSL cerificates to run the sercure `HTTPS` protocol. This encrypts traffic to your site and makes sure that any site you visit is *reasonably* safe.
 
@@ -279,7 +232,7 @@ You may have seen some sites on `HTTP` protocol stating "Hackers may be trying t
 
 To avoid this fate for your site, you need to request SSL certificats, or "certs" to let everyone know you're trying to operate legitimately.
 
-#### Generating Certificates
+##### Generating Certificates
 
 Luckily, this generally doesn't cost anything except some time and an email address.
 
@@ -290,7 +243,7 @@ This can vary wildly depending on your needs, but in some cases, like for nginx,
 > [!TIP]
 > If you want to manually update your configs, run `certbot certonly --nginx` instead.
 
-#### Renewal
+##### Renewal
 
 There are certainw ays you can enable auto-renewal, but in this guide, we'll just talk about doing it manually.
 

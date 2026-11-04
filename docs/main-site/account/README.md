@@ -4,7 +4,9 @@ Learn how to create and manage a comixcleric.com account!
 
 ---
 
-## Accessing Your Account
+
+
+### Creating a New Account
 
 Locate a login or sign-up (registration) form, typically located in the bottom of the sidebar menu.
 
@@ -13,11 +15,15 @@ A form should open when you click the button. This form typically defaults to "l
 > [!NOTE]
 > If you are unable to locate a button or option mentioned, it is possible we have temporarily disabled it. We may restrict login or registration during times of high-volume or routine maintenance.
 
-### Registration:
+
+
+##### Registration:
 
 Once you are able to access a registration form, you'll need to provide us a few key details so we can verify your account.
 
-##### Email
+
+
+###### Email
 
 -# *Required*
 
@@ -25,7 +31,9 @@ A valid email address. Used strictly for login and account notifications.
 
 -# Max: 64 characters
 
-##### Username
+
+
+###### Username
 
 -# *Required; Displayed publicly*
 
@@ -33,7 +41,9 @@ A unique name for your profile. Similar to a "handle."
 
 -# Min: 3, Max: 24 characters
 
-##### Display Name
+
+
+###### Display Name
 
 -# *Displayed publicly*
 
@@ -41,35 +51,51 @@ A custom cosmetic name for your profile.
 
 -# Min: 3, Max: 32 characters
 
-##### Password & Confirmation
+
+
+###### Password & Confirmation
 
 -# *Required*
 
 Secure password. Both values must be the same, and match the standard pattern:
 -# Min: 8, Max: 64, Must contain at least 1 uppercase and lowercase letter, number, and special character *\!\@\#\$\%\^\&\**
 
-##### Policy Agreement
+
+
+###### Access Code
 
 -# *Required*
 
-A checkbox aknowledging that you have read and agree to our policies. <u>**Must be checked to complete registration.**</u>
+A valid access code we have provided you in some way. <u>**Must be present and valid to complete registration.**</u>
+
+
+
+<br>
+
+
 
 Once you have successfully registered a new account, an email should be sent to the address you provided. Follow the instructions in the email to verify your account. This should merely require clicking or copy/pasting a link into your browser's address bar.
 
 > [!IMPORTANT]
 > For issues, please request support via Discord.
 
-### Login
+
+
+##### Login
 
 To access your newly-created or existing account, you need to access a login form. As previously mentioned, this is typically in the bottom of the sidebar menu. You must submit the same email and password you registered with.
 
-##### Email or Username
+
+
+###### Email
 
 -# *Required*
 
-The email address or username you used during registration.
+The email address you provided during registration.
 
-##### Password
+
+
+###### Password
 
 -# *Required*
 
