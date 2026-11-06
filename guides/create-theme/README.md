@@ -2,6 +2,8 @@
 
 This guide covers creating a custom theme for your Comix Cleric app.
 
+-# Written by: Kevin Grawlich
+
 ---
 
 

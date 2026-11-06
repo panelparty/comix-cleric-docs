@@ -2,9 +2,11 @@
 
 This guide covers your first steps when using Comix Cleric for the first time.
 
+-# Written by: Kevin Grawlich
+
 ---
 
-### Creating Your Comix Cleric (Hub Site) Account:
+## Creating Your Comix Cleric (Hub Site) Account:
 
 > [!IMPORTANT]
 > This guide assumes you've already retrieved your 8-digit (####-####) code from the official Kickstarter email.
@@ -23,7 +25,7 @@ This guide covers your first steps when using Comix Cleric for the first time.
 
 ---
 
-### Creating a New "Site Plan":
+## Creating a New "Site Plan":
 
 1. Log into your account at [comixcleric.com](https://comixcleric.com).
 
@@ -39,7 +41,7 @@ This guide covers your first steps when using Comix Cleric for the first time.
 
 ---
 
-### Set Up and Customize Your New Site:
+## Set Up and Customize Your New Site:
 
 1. After successfully creating your new site, check your email for a Site Setup Link from `support@comixcleric.com`. (Note: Some email services remove styles and links from our emails, Yahoo is one of them.)
 
@@ -51,7 +53,7 @@ This guide covers your first steps when using Comix Cleric for the first time.
 
 ---
 
-### To Access Exclusive Discord Channels:
+## To Access Exclusive Discord Channels:
 
 1. Log into your account at [comixcleric.com](https://comixcleric.com) and find your Creator Dashboard link in the sidebar.
 
@@ -63,6 +65,6 @@ This guide covers your first steps when using Comix Cleric for the first time.
 
 ---
 
-### Next Steps:
+#### Next Steps:
 
 [Getting Started With Comix Cleric (Hosted App)](/docs/guides/getting-started)

@@ -2,6 +2,10 @@
 
 Here you'll see how to use Cloudflare to publish your self-hosted Comix Cleric site to the web!
 
+-# Written by: colonthreeing
+
+---
+
 This will allow other people to view your webcomic, as well as automatically dealing with HTTPS, DDOS protection, and a few other cool things!
 
 ## Prerequisites

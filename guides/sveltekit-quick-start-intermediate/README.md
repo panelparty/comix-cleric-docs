@@ -2,16 +2,18 @@
 
 This guide serves as a crash-course in getting started with the SvelteKit / Svelte 5 syntax.
 
+-# Written by: Kevin Grawlich
+
 ---
 
 > [!IMPORTANT]
 > This guide assumes you have prior knowledge of Svelte and/or have read the [Basics](/docs/guides/sveltekit-quick-start-intermediate) guide.
 
-### Intermediate Syntax
+## Intermediate Syntax
 
 Let's move onto slightly more advanced concepts, but still simple enough you'll use them quite often.
 
-#### Conditionals & Loops
+### Conditionals & Loops
 
 If you've worked with JavaScript for any amount of time, you may know about conditionals (if-statements) and loops (each, for, while, etc.).
 
@@ -98,7 +100,7 @@ You can also use loops without explicit array values by giving `{length: number}
 {/each}
 ```
 
-#### Rendering Text to HTML
+### Rendering Text to HTML
 
 You can use Svelte to parse text values into raw HTML for your site to show.
 
@@ -119,7 +121,7 @@ Assuming you are the only person in control of your app contents, though, you ca
 > [!IMPORTANT]
 > You cannot apply local CSS this way as Svelte doesn't technically know about the new HTML and can't scope the required styles. You must make it global as briefly mentioned earlier.
 
-#### Reactive Variables
+### Reactive Variables
 
 Something Svelte is widely known for at this point is being able to define reactive JavaScript, or values that can update automatically wherever they are used. Technically, JavaScript can already allow for changes to values via the `let` variable type, but in Svelte, you do have to be explicit about what values you expect to be updating throughout your application. To do that, you have a few options, the three main ones being:
 

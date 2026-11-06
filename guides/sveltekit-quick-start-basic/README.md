@@ -2,12 +2,14 @@
 
 This guide helps you dive deeper into the SvelteKit / Svelte 5 component syntax.
 
+-# Written by: Kevin Grawlich
+
 ---
 
 > [!IMPORTANT]
 > This guide assumes you have prior knowledge of at least intermediate HTML, CSS, and JavaScript.
 
-### What is SvelteKit?
+## What is SvelteKit?
 
 [SvelteKit](https://svelte.dev/docs/kit/introduction) is a first-party web application framework for [Svelte](https://svelte.dev/docs/svelte/overview), a UI framework that makes templating, components, and JavaScript functionality in your HTML a breeze!
 
@@ -21,7 +23,7 @@ It's *much* more than that, but doesn't have to be!
 
 ---
 
-### How does it work?
+## How does it work?
 
 SvelteKit uses Svelte as a UI framework, which has a simple syntax that gives you a ton of power over how you approach your site code.
 
@@ -71,7 +73,7 @@ replaceUsername(userStats);
 
 ---
 
-### Installation
+## Installation
 
 > [!IMPORTANT]
 > You must have [Node.js + NPM](https://nodejs.org/en/download#:~:text=Or%20get%20a%20prebuilt%20Node.js%C2%AE%20for) installed on the machine you plan to develop with.
@@ -88,7 +90,7 @@ Installing SvelteKit is as simple as:
 4. Run the development server with `npm run dev` and open a browser at `http://localhost:5173/`
 
 
-### Basic Syntax
+## Basic Syntax
 
 Svelte shortens the above example significantly by giving you something called "template syntax", which is just a set of curly braces (`{}`) with JavaScript in between! It effectively just converts the value of whatever you give it into plain text.
 
@@ -136,7 +138,7 @@ Here are a few more examples:
 <p class="math">Your number: {calculation}</p>
 ```
 
-#### Component Structure
+### Component Structure
 
 Svelte is written using `.svelte` files, and can contain a `<script>` tag for local JavaScript, a `<style>` tag for local CSS, and *any number* of plain HTML elements and special Svelte tags and components. Also, those HTML tags do not need a wrapping element, unless you want one. They can just sit freely in file.
 
@@ -165,7 +167,7 @@ Notice that these `.svelte` files don't have the usual HTML boilerplate. Svelte 
 
 SvelteKit was built as a direct way to use Svelte in its ideal environment. In SvelteKit, there is a single `/src/app.html` that is set up automatically to use the page, layout, and element components without copying boilerplate over and over.
 
-#### Project Structure
+### Project Structure
 
 The basic project structure should look something like this:
 
@@ -193,7 +195,7 @@ Inside `/src`, you'll generally find 3 things:
 
 Don't let this worry you, though. SvelteKit is pretty flexible, and as long as you can give a correct path to your imports, they can kinda live anywhere you want, even *outside* the `/src` directory.
 
-#### Pages & Routing
+### Pages & Routing
 
 To work with routes (or pages) in SvelteKit, you simply need to define your expected structure in the filesystem under the `/src/routes` directory.
 
@@ -294,7 +296,7 @@ You can just pass in the element using `{#snippet slotName()}`:
 </MyComponent>
 ```
 
-#### Importing CSS & JavaScript
+### Importing CSS & JavaScript
 
 We'll talk more about props soon, but for now, let's talk about importing CSS and other assets. We previously mentioned that you can use a `<style>` tag in your routes for adding CSS local to that file, but what about external CSS files?
 
@@ -325,7 +327,7 @@ External JavaScript is imported a similar way, but usually requires you to impor
 > [!IMPORTANT]
 > In recent versions of SvelteKit, this was changed to `#lib` instead, so this convention will also change for us soon.
 
-#### Element Components
+### Element Components
 
 One of the last basic concepts we can cover is components. Now, I know we've already *kind of* covered them, since technically any `.svelte` file is a component. More specifically, I want to cover non-route components, or components that act more like HTML elements.
 
@@ -425,7 +427,7 @@ Another cool thing there is replacing `type="button"` with `{type}`. If a prop s
 ></style>
 >```
 
-#### Using Components
+### Using Components
 
 We've talked about building components, but what about *using* them? You just need to import them into the files where they are needed and use them like any other HTML element (notice the import does not have curly braces):
 
@@ -459,5 +461,7 @@ The coolest part (to me anyway) is now if you need to update functionality for a
 Generally, it is best to stick with semantic HTML conventions to maintain basic web accessibility.
 
 ---
+
+#### Next Steps:
 
 There is still much to cover, so head over to the [Intermediate](/docs/guides/sveltekit-quick-start-intermediate) guide for your next steps.
