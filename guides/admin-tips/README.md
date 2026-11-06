@@ -2,6 +2,8 @@
 
 This guide shows off some fun, cool stuff you can do to improve your admin panel experience!
 
+-# Written by: Kevin Grawlich
+
 ---
 
 

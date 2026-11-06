@@ -2,14 +2,14 @@
 
 This guide covers your first steps when using Comix Cleric for the first time.
 
+-# Written by: Kevin Grawlich
+
 ---
-
-
 
 > [!IMPORTANT]
 > This guide assumes you've already completed the main installation or hosting instructions and have access your admin panel.
 
-### Dashboard
+## Dashboard
 
 After logging into your admin account via `<your-subdomain>.comixcleric.com/_cc_admin`, you should be taken directly to the dashboard. This page currently serves as a broad overview of your comic stats and gives access to your most recent posts for quick edits.
 
@@ -20,13 +20,9 @@ The left sidebar contains all the relevant links for editing your site & posts, 
 
 Below the links is a profile button that opens a small menu when clicked, giving you access to logout and profile buttons.
 
-
-
 ---
 
-
-
-### Using Comix Cleric
+## Using Comix Cleric
 
 Where to start is up to you! You could add/edit your app branding & themes, edit your series details, add chapter/volume groups or updates/cast/gallery/blog posts, add details to your user account, and more!
 
@@ -34,12 +30,8 @@ Where to start is up to you! You could add/edit your app branding & themes, edit
 
 [Creating a Custom Theme](/docs/guides/create-theme)
 
-
-
 ---
 
-
-
-### Other Guides
+## Other Guides
 
 [Admin Panel Tips & Tricks](/docs/guides/admin-tips)

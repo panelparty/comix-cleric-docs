@@ -73,6 +73,9 @@ services:
       COMIX_CLERIC_SECRET: REPLACE_THIS_SECRET_VALUE
 ```
 
+> [!IMPORTANT]
+> It is recommended to use a 32-character generated secret string for security. You can create one in the [Better Auth docs](https://better-auth.com/docs/installation#:~:text=BETTER_AUTH_SECRET%3D-,Generate%20Secret,-Need%20to%20rotate).
+
 After configuring and uploading the file to an *empty* directory (Example: `/var/cc-app`), run `docker compose up -d`. The app should now be running on port `3366` by default. Follow the later sections on getting the app live on the internet.
 
 > [!TIP]
@@ -80,7 +83,7 @@ After configuring and uploading the file to an *empty* directory (Example: `/var
 
 #### Updating
 
-We reccommend *always* using the `latest` image of Comix Cleric. It does not upgrade automatically, but gives you simple access to `docker compose pull` which will grab a fresh copy of the latest version.
+We recommend *always* using the `latest` image of Comix Cleric. It does not upgrade automatically, but gives you simple access to `docker compose pull` which will grab a fresh copy of the latest version.
 
 To run an update, first stop the running container with `docker compose down`, then run the pull command.
 
@@ -118,6 +121,9 @@ Updating follows the same process described in "Custom Docker Image" and will re
 
 ## Node.JS Server
 
+> [!NOTE]
+> This method is a bit more involved compared to Docker deployments.
+
 ### Download Source Code
 
 Visit our [downloads](https://comixcleric.com/downloads) page or the releases page on GitHub and choose the version of Comix Cleric you'd like to work with:
@@ -125,13 +131,29 @@ Visit our [downloads](https://comixcleric.com/downloads) page or the releases pa
 - `release.zip` - Contains only the files you need to deploy Comix Cleric.
 - `source.zip` - Contains the full source code of Comix Cleric for development.
 
+> [!TIP]
+> If you are working with `source.zip`: SvelteKit has many [adapters](https://svelte.dev/docs/kit/adapters) you might want to use for your build for services besides Node.js.
+
+Once you've chosen a codebase to work from, unzipped those files onto your local machine or a server via `ssh` or `ftp`. (There are FTP GUI tools if you don't want to use a command line.)
+
+Once the files are unzipped, you should have everything you need to host a Node.js server.
+
+Minimum files needed to run the app:
+```bash
+cc-app/
+├── build/
+├── .env
+├── package.json
+└── pnpm-lock.yaml
+```
+
+Once the files are in-place, navigate to where you uploaded your files `cd /path/to/cc-app`.
+
 ### Environment Variables
 
 Just as Docker needed certain config values to exists, so does Node.js. We will instead use a `.env` file to store the required config.
 
-Copy the included `.example.env` as `.env` or create a new one.
-
-Minimal config to run the app:
+Copy the included `.example.env` as `.env` or create a new one and copy/paste the following minimal configuration snippet:
 
 ```bash
 # .env
@@ -143,14 +165,34 @@ NODE_ENV="production"
 ORIGIN="https://comic.example.com"
 ```
 
+### Install Dependencies
+
+Once the .env file is created, you also need to install the required dependencies. We cannot ship them with the builds or source code because they take up far too much space. It is quicker and easier to install them after placing the main files on another machine.
+
+PNPM is likely required for this operation, so if you don't already have it, simplay run `npm install -g pnpm`. Once installed, you should have access to the `pnpm` command.
+
+Run `pnpm i` or `pnpm install` to install everything Comix Cleric needs to run.
+
+### Running the Server
+
+To deploy your Node.js web server, run `node build`.
+
+Your new Comix Cleric app should now be running on `localhost:3000` and have generated the required folders and files for operation.
+
+### Updating
+
+Updating this method of deployment is not a simple process, yet. It would involve replacing all files and folders except your `data` and `uploads` folders. Custom builds become even trickier, as the front-end and admin panel are in a shared codebase and we can't update one without also updating the other.
+
+If you have a suggestion on how we can solve this issue, place open a discussion on the offical [GitHub](https://github.com/panelparty/comix-cleric) repo!
+
 ---
 
-### Making the App Live
+## Making the App Live
 
 > [!IMPORTANT]
 > This is highly dependent on your host. We will provide additional details as they become available.
 
-#### Nameservers and DNS
+### Nameservers and DNS
 
 Regardless of how you deploy, you'll most likely need to change your nameservers in your domain registrar's admin panel.
 
@@ -166,7 +208,7 @@ ns5.myhost.com # May be hidden/unused
 
 Simply replace the values with the ones provided by your host to allow you to connect your domain to their server IP.
 
-##### DNS Records
+#### DNS Records
 
 Next, you'll want to make sure your host knows which domains and sub-domains your app will run on. 
 
@@ -186,9 +228,9 @@ This should look something like:
 | A/AAAA | example.com       | 192.168.0.1 | Default |
 | A/AAAA | comic.example.com | 192.168.0.1 | Default |
 
-#### Reverse Proxy Configuration
+### Reverse Proxy Configuration
 
-##### nginx
+#### nginx
 
 If you are using `nginx` as your proxy, create a config that points your domain name to the port you've chosen.
 
@@ -205,6 +247,7 @@ Configs can take many different forms, but a general config for something like t
 # Comix Cleric
 server {
   server_name comic.example.com;
+  client_max_body_size 25M;
 
   location / {
     proxy_pass http://localhost:3366;
@@ -212,6 +255,9 @@ server {
     proxy_set_header X-Real-IP $remote_addr;
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header X-Forwarded-Proto $scheme;
+    proxy_busy_buffers_size 512k;
+    proxy_buffers 4 512k;
+    proxy_buffer_size 256k;
   }
 
   listen 443 ssl;
@@ -222,17 +268,17 @@ server {
 > [!TIP]
 > More information is coming soon. Please consider contributing additional guidance in the [documentation repo](https://github.com/panelparty/comix-cleric-docs).
 
-#### SSL Certificates
+### SSL Certificates
 
-##### Why You Need SSL Certificates
+#### Why You Need SSL Certificates
 
 All sites on the internet require SSL cerificates to run the sercure `HTTPS` protocol. This encrypts traffic to your site and makes sure that any site you visit is *reasonably* safe.
 
 You may have seen some sites on `HTTP` protocol stating "Hackers may be trying to steal your information."
 
-To avoid this fate for your site, you need to request SSL certificats, or "certs" to let everyone know you're trying to operate legitimately.
+To avoid this fate for your site, you need to request SSL certificates, or "certs" to let everyone know you're trying to operate legitimately.
 
-##### Generating Certificates
+#### Generating Certificates
 
 Luckily, this generally doesn't cost anything except some time and an email address.
 
@@ -243,7 +289,7 @@ This can vary wildly depending on your needs, but in some cases, like for nginx,
 > [!TIP]
 > If you want to manually update your configs, run `certbot certonly --nginx` instead.
 
-##### Renewal
+#### Renewal
 
 There are certainw ays you can enable auto-renewal, but in this guide, we'll just talk about doing it manually.
 

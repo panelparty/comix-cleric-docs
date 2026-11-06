@@ -2,6 +2,10 @@
 
 Here you'll see how to use Cloudflare to publish your self-hosted Comix Cleric site to the web!
 
+-# Written by: colonthreeing
+
+---
+
 This will allow other people to view your webcomic, as well as automatically dealing with HTTPS, DDOS protection, and a few other cool things!
 
 ## Prerequisites
@@ -11,7 +15,7 @@ This will allow other people to view your webcomic, as well as automatically dea
 
 ## Getting started
 
-Go to [Cloudflare](https://dash.cloudflare.com) and select the labele "Domains," then "Add a domain."
+Go to [Cloudflare](https://dash.cloudflare.com) and select the label "Domains," then "Add a domain."
 
 You should come to a page labelled "Add a Site." If you already have a domain, select "Connect a domain", otherwise select "Buy a domain". If you buy a domain from Cloudflare you should be able to skip most of the next section.
 
