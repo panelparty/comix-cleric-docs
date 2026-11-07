@@ -265,6 +265,9 @@ server {
 }
 ```
 
+> [!WARNING]
+> If you are having persisten errors seeing pages or accessing setup, make sure to increase your default `proxy_buffer_size` to around `256k` or more. Most reverse-proxy defaults are too small.
+
 > [!TIP]
 > More information is coming soon. Please consider contributing additional guidance in the [documentation repo](https://github.com/panelparty/comix-cleric-docs).
 
